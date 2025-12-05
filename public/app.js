@@ -4,6 +4,7 @@ let questions = [];
 let currentQuestionIndex = 0;
 let userAnswers = {};
 let quizResults = null;
+let isReviewMode = false;
 
 // Initialize quiz on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,6 +103,7 @@ function renderMultipleChoice(question) {
         input.id = `option-${index}`;
         input.value = option;
         input.onchange = () => saveAnswer(question.id, option);
+        input.disabled = isReviewMode;
 
         const label = document.createElement('label');
         label.className = 'answer-label';
@@ -128,6 +130,7 @@ function renderTrueFalse(question) {
         input.id = `option-${index}`;
         input.value = option === 'Verdadero';
         input.onchange = () => saveAnswer(question.id, option === 'Verdadero');
+        input.disabled = isReviewMode;
 
         const label = document.createElement('label');
         label.className = 'answer-label';
@@ -150,6 +153,7 @@ function renderFillBlank(question) {
     input.placeholder = 'Escribe tu respuesta aquí...';
     input.id = `answer-${question.id}`;
     input.oninput = (e) => saveAnswer(question.id, e.target.value);
+    input.disabled = isReviewMode;
 
     answerSection.appendChild(input);
 }
@@ -173,6 +177,7 @@ function renderMultipleSelect(question) {
         input.name = `question-${question.id}`;
         input.id = `option-${index}`;
         input.value = option;
+        input.disabled = isReviewMode;
         input.onchange = () => {
             const selected = Array.from(document.querySelectorAll(`input[name="question-${question.id}"]:checked`))
                 .map(cb => cb.value);
@@ -209,6 +214,7 @@ function renderMatching(question) {
             input.className = 'text-input';
             input.placeholder = `Espacio ${index + 1}`;
             input.style.marginBottom = '1rem';
+            input.disabled = isReviewMode;
             input.oninput = (e) => {
                 answers[index] = e.target.value;
                 saveAnswer(question.id, answers);
@@ -253,6 +259,7 @@ function renderMatching(question) {
                     answers[index] = e.target.value;
                     saveAnswer(question.id, answers);
                 };
+                select.disabled = isReviewMode;
 
                 pairDiv.appendChild(description);
                 pairDiv.appendChild(select);
@@ -262,6 +269,7 @@ function renderMatching(question) {
                 input.type = 'text';
                 input.className = 'text-input matching-input';
                 input.placeholder = 'Respuesta...';
+                input.disabled = isReviewMode;
                 input.oninput = (e) => {
                     answers[index] = e.target.value;
                     saveAnswer(question.id, answers);
@@ -449,6 +457,9 @@ function showResults() {
 function reviewAnswers() {
     const modal = document.getElementById('resultsModal');
     modal.classList.remove('active');
+
+    // Enable review mode
+    isReviewMode = true;
 
     // Go to first question
     displayQuestion(0);
