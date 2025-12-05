@@ -8,12 +8,24 @@
     ],
     "routes": [
         {
+            "src": "/styles.css",
+            "dest": "/public/styles.css"
+        },
+        {
+            "src": "/app.js",
+            "dest": "/public/app.js"
+        },
+        {
+            "src": "/quiz.html",
+            "dest": "/public/quiz.html"
+        },
+        {
             "src": "/api/(.*)",
-            "dest": "server.js"
+            "dest": "/server.js"
         },
         {
             "src": "/(.*)",
-            "dest": "server.js"
+            "dest": "/server.js"
         }
     ]
 }
