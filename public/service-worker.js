@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quiz-cripto-v1';
+const CACHE_NAME = 'quiz-cripto-v2';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -8,7 +8,9 @@ const ASSETS_TO_CACHE = [
     '/app.js',
     '/manifest.json',
     '/icon-192.png',
-    '/icon-512.png'
+    '/icon-512.png',
+    '/api/questions/1',
+    '/api/questions/2'
 ];
 
 // Install event - cache assets
@@ -41,7 +43,7 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
-    // Skip cross-origin requests
+    // Skip cross-origin requests (like YouTube)
     if (!event.request.url.startsWith(self.location.origin)) {
         return;
     }
@@ -50,12 +52,13 @@ self.addEventListener('fetch', (event) => {
         caches.match(event.request)
             .then((response) => {
                 if (response) {
+                    console.log('Serving from cache:', event.request.url);
                     return response;
                 }
 
                 return fetch(event.request).then((response) => {
                     // Don't cache if not a success response
-                    if (!response || response.status !== 200 || response.type !== 'basic') {
+                    if (!response || response.status !== 200) {
                         return response;
                     }
 
@@ -64,17 +67,18 @@ self.addEventListener('fetch', (event) => {
 
                     caches.open(CACHE_NAME)
                         .then((cache) => {
+                            console.log('Caching:', event.request.url);
                             cache.put(event.request, responseToCache);
                         });
 
                     return response;
+                }).catch(() => {
+                    console.log('Offline - serving from cache:', event.request.url);
+                    // Return offline page if available
+                    if (event.request.mode === 'navigate') {
+                        return caches.match('/index.html');
+                    }
                 });
-            })
-            .catch(() => {
-                // Return offline page if available
-                if (event.request.mode === 'navigate') {
-                    return caches.match('/index.html');
-                }
             })
     );
 });
