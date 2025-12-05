@@ -87,6 +87,11 @@ function displayQuestion(index) {
 
     // Restore previous answer if exists
     restoreAnswer(question);
+
+    // Highlight answers if in review mode
+    if (isReviewMode) {
+        highlightAnswers();
+    }
 }
 
 // Shuffle array function
@@ -109,6 +114,7 @@ function renderMultipleChoice(question) {
     shuffledOptions.forEach((option, index) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'answer-option';
+        optionDiv.dataset.value = option;
 
         const input = document.createElement('input');
         input.type = 'radio';
@@ -139,13 +145,15 @@ function renderTrueFalse(question) {
     options.forEach((option, index) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'answer-option';
+        const boolValue = option === 'Verdadero';
+        optionDiv.dataset.value = boolValue;
 
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = `question-${question.id}`;
         input.id = `option-${index}`;
-        input.value = option === 'Verdadero';
-        input.onchange = () => saveAnswer(question.id, option === 'Verdadero');
+        input.value = boolValue;
+        input.onchange = () => saveAnswer(question.id, boolValue);
         input.disabled = isReviewMode;
 
         const label = document.createElement('label');
@@ -190,6 +198,7 @@ function renderMultipleSelect(question) {
     shuffledOptions.forEach((option, index) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'answer-option';
+        optionDiv.dataset.value = option;
 
         const input = document.createElement('input');
         input.type = 'checkbox';
@@ -335,7 +344,7 @@ function restoreAnswer(question) {
             break;
 
         case 'matching':
-            const inputs = document.querySelectorAll('#answerSection input[type="text"]');
+            const inputs = document.querySelectorAll('#answerSection input[type="text"], #answerSection select');
             if (Array.isArray(savedAnswer)) {
                 inputs.forEach((input, index) => {
                     if (savedAnswer[index]) input.value = savedAnswer[index];
@@ -366,20 +375,38 @@ function updateNavigation() {
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
 
-    // Disable previous button completely (no going back)
-    prevButton.disabled = true;
-    prevButton.style.opacity = '0.3';
-    prevButton.style.cursor = 'not-allowed';
+    // Enable previous button in review mode
+    if (isReviewMode) {
+        prevButton.disabled = currentQuestionIndex === 0;
+        prevButton.style.opacity = currentQuestionIndex === 0 ? '0.3' : '1';
+        prevButton.style.cursor = currentQuestionIndex === 0 ? 'not-allowed' : 'pointer';
+    } else {
+        // Disable previous button in quiz mode (no going back)
+        prevButton.disabled = true;
+        prevButton.style.opacity = '0.3';
+        prevButton.style.cursor = 'not-allowed';
+    }
 
     // Update next button text
     if (currentQuestionIndex === questions.length - 1) {
-        nextButton.innerHTML = `
-            Finalizar
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-        `;
+        if (isReviewMode) {
+            nextButton.innerHTML = `
+                Volver al Inicio
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                </svg>
+            `;
+            nextButton.onclick = goHome;
+        } else {
+            nextButton.innerHTML = `
+                Finalizar
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            `;
+            nextButton.onclick = submitQuiz;
+        }
     } else {
         nextButton.innerHTML = `
             Siguiente
@@ -387,6 +414,7 @@ function updateNavigation() {
                 <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
         `;
+        nextButton.onclick = nextQuestion;
     }
 }
 
@@ -405,10 +433,10 @@ function submitQuiz() {
             switch (question.type) {
                 case 'multiple-choice':
                 case 'true-false':
-                    isCorrect = userAnswer === question.correctAnswer;
+                    isCorrect = userAnswer == question.correctAnswer;
                     break;
 
-                case 'fill-in-blank':
+                case 'fill-blank':
                     const correctAnswers = Array.isArray(question.correctAnswer)
                         ? question.correctAnswer
                         : [question.correctAnswer];
@@ -493,7 +521,7 @@ function showResults() {
 
     // Display results summary
     resultsSummary.innerHTML = '';
-    const correctCount = quizResults.results.filter(r => r.isCorrect).length;
+    const correctCount = quizResults.results.filter(r => r.correct).length;
     const incorrectCount = quizResults.results.length - correctCount;
 
     const summaryHTML = `
@@ -526,6 +554,115 @@ function reviewAnswers() {
     // Go to first question
     displayQuestion(0);
     updateNavigation();
+}
+
+// Highlight answers in review mode
+function highlightAnswers() {
+    if (!quizResults) return;
+
+    const question = questions[currentQuestionIndex];
+    const result = quizResults.results.find(r => r.questionId === question.id);
+
+    if (!result) return;
+
+    const questionCard = document.querySelector('.question-card');
+
+    // Add correct/incorrect class to question card
+    if (result.correct) {
+        questionCard.classList.add('correct-answer');
+        questionCard.classList.remove('incorrect-answer');
+    } else {
+        questionCard.classList.add('incorrect-answer');
+        questionCard.classList.remove('correct-answer');
+
+        // Show correct answer for incorrect responses
+        showCorrectAnswer(question, result);
+    }
+
+    // Highlight answer options
+    highlightOptions(question, result);
+}
+
+// Show correct answer
+function showCorrectAnswer(question, result) {
+    const answerSection = document.getElementById('answerSection');
+
+    // Create correct answer box
+    const correctBox = document.createElement('div');
+    correctBox.className = 'show-correct';
+
+    const label = document.createElement('span');
+    label.className = 'show-correct-label';
+    label.textContent = '✓ Respuesta Correcta:';
+
+    const value = document.createElement('div');
+    value.className = 'show-correct-value';
+
+    // Format correct answer based on question type
+    if (Array.isArray(result.correctAnswer)) {
+        value.textContent = result.correctAnswer.join(', ');
+    } else if (typeof result.correctAnswer === 'boolean') {
+        value.textContent = result.correctAnswer ? 'Verdadero' : 'Falso';
+    } else {
+        value.textContent = result.correctAnswer;
+    }
+
+    correctBox.appendChild(label);
+    correctBox.appendChild(value);
+    answerSection.appendChild(correctBox);
+}
+
+// Highlight answer options
+function highlightOptions(question, result) {
+    const answerSection = document.getElementById('answerSection');
+
+    switch (question.type) {
+        case 'multiple-choice':
+        case 'true-false':
+            const options = answerSection.querySelectorAll('.answer-option');
+            options.forEach(option => {
+                const input = option.querySelector('input');
+                const value = input.value;
+
+                // Highlight user's selection
+                if (value == result.userAnswer) {
+                    option.classList.add('user-selected');
+                    if (!result.correct) {
+                        option.classList.add('incorrect-choice');
+                    }
+                }
+
+                // Highlight correct answer
+                if (value == result.correctAnswer) {
+                    option.classList.add('correct-choice');
+                }
+            });
+            break;
+
+        case 'multiple-select':
+            const checkboxOptions = answerSection.querySelectorAll('.answer-option');
+            checkboxOptions.forEach(option => {
+                const input = option.querySelector('input');
+                const value = input.value;
+
+                // Highlight user's selections
+                if (result.userAnswer && result.userAnswer.includes(value)) {
+                    option.classList.add('user-selected');
+                }
+
+                // Highlight correct answers
+                if (result.correctAnswer && result.correctAnswer.includes(value)) {
+                    option.classList.add('correct-choice');
+                }
+
+                // Highlight incorrect selections
+                if (result.userAnswer && result.userAnswer.includes(value) &&
+                    (!result.correctAnswer || !result.correctAnswer.includes(value))) {
+                    option.classList.add('incorrect-choice');
+                }
+            });
+            break;
+    }
 }
 
 // Go home

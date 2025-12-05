@@ -1,10 +1,11 @@
-const CACHE_NAME = 'quiz-cripto-v3';
+const CACHE_NAME = 'quiz-cripto-v4';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/quiz.html',
     '/css/styles.css',
     '/css/music-player.css',
+    '/css/review-mode.css',
     '/js/app.js',
     '/manifest.json',
     '/assets/icons/icon-192.png',
