@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Offline - Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0f172a;
+            color: white;
+        }
+
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #1e293b;
+        }
+
+        .success {
+            border-left: 4px solid #10b981;
+        }
+
+        .error {
+            border-left: 4px solid #ef4444;
+        }
+
+        .info {
+            border-left: 4px solid #3b82f6;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        pre {
+            background: #1e293b;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔧 Test de Funcionalidad Offline</h1>
+
+    <div id="results"></div>
+
+    <button onclick="testServiceWorker()">1. Test Service Worker</button>
+    <button onclick="testCache()">2. Test Cache</button>
+    <button onclick="testAPI()">3. Test API</button>
+    <button onclick="clearCache()">Limpiar Cache</button>
+
+    <script>
+        const results = document.getElementById('results');
+
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+        }
+
+        async function testServiceWorker() {
+            results.innerHTML = '';
+            addResult('<strong>Test 1: Service Worker</strong>');
+
+            if ('serviceWorker' in navigator) {
+                addResult('✅ Service Worker API disponible', 'success');
+
+                try {
+                    const registration = await navigator.serviceWorker.getRegistration();
+                    if (registration) {
+                        addResult(`✅ Service Worker registrado<br>Scope: ${registration.scope}<br>State: ${registration.active?.state}`, 'success');
+                    } else {
+                        addResult('❌ Service Worker NO registrado', 'error');
+                        addResult('Intenta recargar la página principal primero', 'info');
+                    }
+                } catch (error) {
+                    addResult(`❌ Error: ${error.message}`, 'error');
+                }
+            } else {
+                addResult('❌ Service Worker NO soportado en este navegador', 'error');
+            }
+        }
+
+        async function testCache() {
+            results.innerHTML = '';
+            addResult('<strong>Test 2: Cache Storage</strong>');
+
+            if ('caches' in window) {
+                addResult('✅ Cache API disponible', 'success');
+
+                try {
+                    const cacheNames = await caches.keys();
+                    addResult(`Caches encontrados: ${cacheNames.length}`, 'info');
+
+                    for (const name of cacheNames) {
+                        const cache = await caches.open(name);
+                        const keys = await cache.keys();
+                        addResult(`<strong>${name}</strong>: ${keys.length} archivos<br><pre>${keys.map(k => k.url).join('\n')}</pre>`, 'success');
+                    }
+
+                    if (cacheNames.length === 0) {
+                        addResult('❌ No hay caches. Abre la app principal primero.', 'error');
+                    }
+                } catch (error) {
+                    addResult(`❌ Error: ${error.message}`, 'error');
+                }
+            } else {
+                addResult('❌ Cache API NO disponible', 'error');
+            }
+        }
+
+        async function testAPI() {
+            results.innerHTML = '';
+            addResult('<strong>Test 3: API Endpoints</strong>');
+
+            const endpoints = ['/api/questions/1', '/api/questions/2'];
+
+            for (const endpoint of endpoints) {
+                try {
+                    const response = await fetch(endpoint);
+                    if (response.ok) {
+                        const data = await response.json();
+                        addResult(`✅ ${endpoint}: ${data.length} preguntas`, 'success');
+                    } else {
+                        addResult(`❌ ${endpoint}: Error ${response.status}`, 'error');
+                    }
+                } catch (error) {
+                    addResult(`❌ ${endpoint}: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        async function clearCache() {
+            results.innerHTML = '';
+            addResult('<strong>Limpiando Cache...</strong>');
+
+            try {
+                const cacheNames = await caches.keys();
+                for (const name of cacheNames) {
+                    await caches.delete(name);
+                    addResult(`✅ Cache eliminado: ${name}`, 'success');
+                }
+
+                const registration = await navigator.serviceWorker.getRegistration();
+                if (registration) {
+                    await registration.unregister();
+                    addResult('✅ Service Worker desregistrado', 'success');
+                }
+
+                addResult('✅ Todo limpio. Recarga la app principal.', 'success');
+            } catch (error) {
+                addResult(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-run test on load
+        window.addEventListener('load', () => {
+            addResult('Página de diagnóstico cargada. Haz clic en los botones para probar.', 'info');
+        });
+    </script>
+</body>
+
+</html>
