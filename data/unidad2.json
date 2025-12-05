@@ -1,0 +1,184 @@
+[
+    {
+        "id": 1,
+        "question": "Diffie-Hellman es un ejemplo de:",
+        "type": "fill-blank",
+        "correctAnswer": "Algoritmo Asimétrico",
+        "points": 1
+    },
+    {
+        "id": 2,
+        "question": "En cuál de las siguientes capas del modelo OSI se encuentra el Protocolo AKA?",
+        "type": "multiple-choice",
+        "options": [
+            "Aplicación",
+            "Red",
+            "Enlace",
+            "Sesión",
+            "Transporte"
+        ],
+        "correctAnswer": "Enlace",
+        "points": 1
+    },
+    {
+        "id": 3,
+        "question": "En cuál de las siguientes capas del modelo OSI se encuentra el Protocolo EAP?",
+        "type": "multiple-choice",
+        "options": [
+            "Sesión",
+            "Enlace",
+            "Aplicación",
+            "Transporte",
+            "Red"
+        ],
+        "correctAnswer": "Enlace",
+        "points": 1
+    },
+    {
+        "id": 4,
+        "question": "Los protocolos criptográficos garantizan la seguridad total de los datos que transitan en el Internet?",
+        "type": "true-false",
+        "correctAnswer": false,
+        "points": 1
+    },
+    {
+        "id": 5,
+        "question": "AES es un ejemplo de:",
+        "type": "fill-blank",
+        "correctAnswer": "Algoritmo Simétrico",
+        "points": 1
+    },
+    {
+        "id": 6,
+        "question": "Qué significan las siglas EAP?",
+        "type": "fill-blank",
+        "correctAnswer": "Extensible Authentication Protocol",
+        "points": 1
+    },
+    {
+        "id": 7,
+        "question": "A qué apellidos hacen referencia las siglas RSA?",
+        "type": "fill-blank",
+        "correctAnswer": "Rivest Shamir Adleman",
+        "points": 1
+    },
+    {
+        "id": 8,
+        "question": "Qué significan las siglas TLS?",
+        "type": "fill-blank",
+        "correctAnswer": "Transport Layer Security",
+        "points": 1
+    },
+    {
+        "id": 9,
+        "question": "A los Algoritmos _____ también se los conoce como Algoritmos de clave privada",
+        "type": "fill-blank",
+        "correctAnswer": "simétricos",
+        "points": 1
+    },
+    {
+        "id": 10,
+        "question": "Uno de los objetivos de los Algoritmos Criptográficos es proporcionar:",
+        "type": "fill-blank",
+        "correctAnswer": "Autenticación",
+        "points": 1
+    },
+    {
+        "id": 11,
+        "question": "Cuál de los siguientes protocolos es históricamente el más utilizado para las comunicaciones en Internet?",
+        "type": "multiple-choice",
+        "options": [
+            "HTTP",
+            "Ninguna de las respuestas es correcta",
+            "HTTPS",
+            "TCP/IP",
+            "SSH"
+        ],
+        "correctAnswer": "TCP/IP",
+        "points": 1
+    },
+    {
+        "id": 12,
+        "question": "En cuál de las siguientes capas del modelo OSI se encuentra el Protocolo TLS?",
+        "type": "multiple-choice",
+        "options": [
+            "Aplicación",
+            "Transporte",
+            "Sesión",
+            "Red",
+            "Enlace"
+        ],
+        "correctAnswer": "Transporte",
+        "points": 1
+    },
+    {
+        "id": 13,
+        "question": "MD5 es un ejemplo de:",
+        "type": "fill-blank",
+        "correctAnswer": "Función Hash",
+        "points": 1
+    },
+    {
+        "id": 14,
+        "question": "A los Algoritmos Asimétricos también se los conoce como Algoritmos de clave:",
+        "type": "fill-blank",
+        "correctAnswer": "pública",
+        "points": 1
+    },
+    {
+        "id": 15,
+        "question": "En cuál de las siguientes capas del modelo OSI se encuentra el Protocolo SSL?",
+        "type": "multiple-choice",
+        "options": [
+            "Enlace",
+            "Aplicación",
+            "Transporte",
+            "Sesión",
+            "Red"
+        ],
+        "correctAnswer": "Transporte",
+        "points": 1
+    },
+    {
+        "id": 16,
+        "question": "Los protocolos criptográficos impiden a usuarios no autorizados acceder a datos de una red de telecomunicaciones?",
+        "type": "true-false",
+        "correctAnswer": true,
+        "points": 1
+    },
+    {
+        "id": 17,
+        "question": "A qué hacen referencia las siglas SHA?",
+        "type": "fill-blank",
+        "correctAnswer": "Secure Hash Algorithm",
+        "points": 1
+    },
+    {
+        "id": 18,
+        "question": "Qué significan las siglas DES?",
+        "type": "fill-blank",
+        "correctAnswer": "Data Encryption Standard",
+        "points": 1
+    },
+    {
+        "id": 19,
+        "question": "En cuál de las siguientes capas del modelo OSI se encuentra el Protocolo IPsec?",
+        "type": "multiple-choice",
+        "options": [
+            "Sesión",
+            "Transporte",
+            "Red",
+            "Aplicación",
+            "Enlace"
+        ],
+        "correctAnswer": "Red",
+        "points": 1
+    },
+    {
+        "id": 20,
+        "question": "Qué significan las siglas PLP, en el ámbito de protección de redes inalámbricas?",
+        "type": "fill-blank",
+        "correctAnswer": "Packet Layer Protocol",
+        "points": 1
+    }
+]

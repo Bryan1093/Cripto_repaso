@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Cuestionario de Criptografía</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <div class="header-content">
+                <button class="back-button" onclick="goHome()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Volver
+                </button>
+                <div class="header-info">
+                    <h2 id="unitTitle">Unidad 1</h2>
+                    <div class="progress-info">
+                        <span id="questionProgress">Pregunta 1/20</span>
+                        <span class="separator">•</span>
+                        <span id="scoreDisplay">Puntos: 0/20</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </header>
+
+        <main class="quiz-main">
+            <div class="question-card">
+                <div class="question-number" id="questionNumber">Pregunta 1</div>
+                <h3 class="question-text" id="questionText"></h3>
+
+                <div class="answer-section" id="answerSection">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button class="nav-button secondary" id="prevButton" onclick="previousQuestion()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Anterior
+                </button>
+                <button class="nav-button primary" id="nextButton" onclick="nextQuestion()">
+                    Siguiente
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Results Modal -->
+    <div class="modal" id="resultsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>¡Quiz Completado!</h2>
+            </div>
+            <div class="modal-body">
+                <div class="score-display">
+                    <div class="score-circle">
+                        <svg class="score-svg" viewBox="0 0 200 200">
+                            <circle class="score-bg" cx="100" cy="100" r="90" />
+                            <circle class="score-progress" id="scoreCircle" cx="100" cy="100" r="90" />
+                        </svg>
+                        <div class="score-text">
+                            <span class="score-value" id="finalScore">0</span>
+                            <span class="score-total">/20</span>
+                        </div>
+                    </div>
+                    <div class="score-percentage" id="scorePercentage">0%</div>
+                </div>
+
+                <div class="results-summary" id="resultsSummary">
+                    <!-- Results will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button secondary" onclick="reviewAnswers()">Revisar Respuestas</button>
+                <button class="modal-button primary" onclick="goHome()">Volver al Inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

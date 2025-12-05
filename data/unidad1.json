@@ -1,0 +1,207 @@
+[
+  {
+    "id": 1,
+    "question": "El concepto opuesto a la Criptografía es:",
+    "type": "fill-blank",
+    "correctAnswer": "Criptoanálisis",
+    "points": 1
+  },
+  {
+    "id": 2,
+    "question": "Es un área que se dedica al estudio de ocultar datos",
+    "type": "multiple-choice",
+    "options": [
+      "Criptología",
+      "Criptografía",
+      "Criptoanálisis",
+      "Esteganografía",
+      "Todas las respuestas son correctas"
+    ],
+    "correctAnswer": "Esteganografía",
+    "points": 1
+  },
+  {
+    "id": 3,
+    "question": "Las Funciones Hash permiten encriptar y desencriptar un mensaje?",
+    "type": "true-false",
+    "correctAnswer": false,
+    "points": 1
+  },
+  {
+    "id": 4,
+    "question": "Cuál es el significado de las siglas SSL?",
+    "type": "fill-blank",
+    "correctAnswer": "Secure Sockets Layer",
+    "points": 1
+  },
+  {
+    "id": 5,
+    "question": "Es un área que se dedica al estudio de la escritura secreta",
+    "type": "multiple-choice",
+    "options": [
+      "Todas las respuestas son correctas",
+      "Esteganografía",
+      "Criptoanálisis",
+      "Criptografía",
+      "Criptología"
+    ],
+    "correctAnswer": "Criptología",
+    "points": 1
+  },
+  {
+    "id": 6,
+    "question": "Blockchain es un ejemplo de criptografía de clave:",
+    "type": "fill-blank",
+    "correctAnswer": "Asimétrica",
+    "points": 1
+  },
+  {
+    "id": 7,
+    "question": "En el cifrado por filas:",
+    "type": "multiple-choice",
+    "options": [
+      "Se escribe el texto en claro por columnas y se lee al revés",
+      "Se escribe el texto en claro por columnas y se lee por filas",
+      "Se escribe el texto en claro por filas y se lee en saltos de dos",
+      "Ninguna de las respuestas es correcta",
+      "Se escribe el texto en claro por filas y se lee por columnas"
+    ],
+    "correctAnswer": "Se escribe el texto en claro por columnas y se lee por filas",
+    "points": 1
+  },
+  {
+    "id": 8,
+    "question": "Las Funciones Hash siempre tienen salida de longitud fija?",
+    "type": "true-false",
+    "correctAnswer": false,
+    "points": 1
+  },
+  {
+    "id": 9,
+    "question": "Cuál de los siguientes algoritmos tiene una clave con longitud de 32 bits?",
+    "type": "multiple-choice",
+    "options": [
+      "Triple Data Encryption Standard",
+      "Ninguna de las opciones es correcta",
+      "Data Encryption Standard",
+      "Advanced Encryption Standard"
+    ],
+    "correctAnswer": "Ninguna de las opciones es correcta",
+    "points": 1
+  },
+  {
+    "id": 10,
+    "question": "Un cifrado en el que unidades de texto plano se cambian de posición siguiendo un esquema bien definido; ya sea de una sola letra, pares de letras, tríos de letras o mezclas de lo anterior, se conoce como cifrado por:",
+    "type": "fill-blank",
+    "correctAnswer": "Transposición",
+    "points": 1
+  },
+  {
+    "id": 11,
+    "question": "En la Criptografía _____ el método de protección de la clave es fácilmente vulnerable, mientras que en la Criptografía _____ las claves tienen un código de encriptación que hace difícil romperlas",
+    "type": "matching",
+    "blanks": ["Simétrica", "Asimétrica"],
+    "points": 1
+  },
+  {
+    "id": 12,
+    "question": "Empareja las técnicas de cifrado con sus descripciones:",
+    "type": "matching",
+    "pairs": [
+      {
+        "description": "Técnica de cifrado que agrupa datos en grupos de longitud fija",
+        "answer": "Block Cipher"
+      },
+      {
+        "description": "Técnica de cifrado que agrupa datos en grupos de 1 bit o 1 byte",
+        "answer": "Stream Cipher"
+      }
+    ],
+    "points": 1
+  },
+  {
+    "id": 13,
+    "question": "Cuál de las siguientes ciencias son las más utilizadas por la Criptografía? (Elija 2)",
+    "type": "multiple-select",
+    "options": [
+      "Programación",
+      "Matemáticas",
+      "Computación",
+      "Cálculo",
+      "Física"
+    ],
+    "correctAnswers": ["Matemáticas", "Computación"],
+    "points": 1
+  },
+  {
+    "id": 14,
+    "question": "Kerberos es un protocolo que se basa en criptografía de clave:",
+    "type": "fill-blank",
+    "correctAnswer": "Simétrica",
+    "points": 1
+  },
+  {
+    "id": 15,
+    "question": "Cuál es el mensaje del criptograma NMHGKQTBK, utilizando la clave UCE y la tabla de Vigenère?",
+    "type": "fill-blank",
+    "correctAnswer": "HOLAMUNDO",
+    "points": 1
+  },
+  {
+    "id": 16,
+    "question": "Si se cifra el mensaje ESTO ES UNA PRUEBA con 3 filas, el criptograma será:",
+    "type": "multiple-choice",
+    "options": [
+      "ETEUA REASO SNPUB",
+      "ESRSU UTNEO ABEPA",
+      "Ninguna de las respuestas es correcta",
+      "EOUPE SENRB TSAUA",
+      "EEAES SPBTU RAONU"
+    ],
+    "correctAnswer": "EOUPE SENRB TSAUA",
+    "points": 1
+  },
+  {
+    "id": 17,
+    "question": "Cuáles de los siguientes son Algoritmos de cifrado simétrico? (Elija 3)",
+    "type": "multiple-select",
+    "options": [
+      "Serpent",
+      "Blowfish",
+      "DSA",
+      "ECDSA",
+      "FEAL",
+      "ElGamal"
+    ],
+    "correctAnswers": ["FEAL", "Serpent", "Blowfish"],
+    "points": 1
+  },
+  {
+    "id": 18,
+    "question": "Es la rama de Criptografía que estudia las técnicas para romper códigos cifrados:",
+    "type": "fill-blank",
+    "correctAnswer": "Criptoanálisis",
+    "points": 1
+  },
+  {
+    "id": 19,
+    "question": "La Criptografía _____ es aquella en la que se emite una única clave entre emisor y receptor.",
+    "type": "fill-blank",
+    "correctAnswer": "Simétrica",
+    "points": 1
+  },
+  {
+    "id": 20,
+    "question": "Un cifrado en el que unidades de texto plano se sustituyen en diferentes series de caracteres o letras del cifrado César formando estos caracteres una tabla, se conoce como:",
+    "type": "multiple-choice",
+    "options": [
+      "Cifrado por Sustitución",
+      "Ninguna de las opciones es correcta",
+      "Cifrado por Transposición",
+      "Cifrado por Libro",
+      "Cifrado de Vigenère"
+    ],
+    "correctAnswer": "Cifrado de Vigenère",
+    "points": 1
+  }
+]
