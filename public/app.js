@@ -391,26 +391,69 @@ function updateNavigation() {
 }
 
 // Submit quiz
-async function submitQuiz() {
+function submitQuiz() {
     try {
-        const response = await fetch('/api/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                unit: currentUnit,
-                answers: userAnswers
-            })
+        // Grade quiz locally
+        let score = 0;
+        const totalPoints = questions.length;
+        const results = [];
+
+        questions.forEach((question, index) => {
+            const userAnswer = userAnswers[question.id];
+            let isCorrect = false;
+
+            switch (question.type) {
+                case 'multiple-choice':
+                case 'true-false':
+                    isCorrect = userAnswer === question.correctAnswer;
+                    break;
+
+                case 'fill-in-blank':
+                    const correctAnswers = Array.isArray(question.correctAnswer)
+                        ? question.correctAnswer
+                        : [question.correctAnswer];
+                    isCorrect = correctAnswers.some(answer =>
+                        userAnswer?.toLowerCase().trim() === answer.toLowerCase().trim()
+                    );
+                    break;
+
+                case 'multiple-select':
+                    if (Array.isArray(userAnswer) && Array.isArray(question.correctAnswer)) {
+                        const sortedUser = [...userAnswer].sort();
+                        const sortedCorrect = [...question.correctAnswer].sort();
+                        isCorrect = JSON.stringify(sortedUser) === JSON.stringify(sortedCorrect);
+                    }
+                    break;
+
+                case 'matching':
+                    if (Array.isArray(userAnswer) && Array.isArray(question.correctAnswer)) {
+                        isCorrect = userAnswer.every((answer, idx) =>
+                            answer === question.correctAnswer[idx]
+                        );
+                    }
+                    break;
+            }
+
+            if (isCorrect) score++;
+
+            results.push({
+                questionId: question.id,
+                correct: isCorrect,
+                userAnswer: userAnswer,
+                correctAnswer: question.correctAnswer
+            });
         });
 
-        if (!response.ok) throw new Error('Failed to submit quiz');
+        quizResults = {
+            score: score,
+            totalPoints: totalPoints,
+            results: results
+        };
 
-        quizResults = await response.json();
         showResults();
     } catch (error) {
-        console.error('Error submitting quiz:', error);
-        alert('Error al enviar el cuestionario. Por favor, intenta de nuevo.');
+        console.error('Error grading quiz:', error);
+        alert('Error al calificar el cuestionario. Por favor, intenta de nuevo.');
     }
 }
 
