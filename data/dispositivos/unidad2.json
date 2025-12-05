@@ -1,0 +1,287 @@
+[
+    {
+        "id": 1,
+        "question": "¿Cuál de las siguientes características es clave en un componente de navegación?",
+        "type": "multiple-choice",
+        "options": [
+            "Control de rendimiento gráfico",
+            "Definición de rutas",
+            "Personalización de colores",
+            "Gestión de memoria",
+            "Manejo de eventos táctiles"
+        ],
+        "correctAnswer": "Definición de rutas"
+    },
+    {
+        "id": 2,
+        "question": "¿El uso de patrones de diseño consistentes mejora la usabilidad de una aplicación móvil?",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 3,
+        "question": "¿Cuál de los siguientes componentes permite integrar flujos de datos reactivos en aplicaciones móviles utilizando Kotlin?",
+        "type": "multiple-choice",
+        "options": [
+            "Navigation Component",
+            "LiveData",
+            "RecyclerView",
+            "ViewPager",
+            "Room Database",
+            "ConstraintLayout"
+        ],
+        "correctAnswer": "LiveData"
+    },
+    {
+        "id": 4,
+        "question": "¿Cuál de los siguientes componentes se utiliza para capturar texto ingresado por el usuario en una aplicación móvil?",
+        "type": "multiple-choice",
+        "options": [
+            "Spinner",
+            "TextField",
+            "ListView",
+            "ImageView",
+            "Button",
+            "ProgressBar"
+        ],
+        "correctAnswer": "TextField"
+    },
+    {
+        "id": 5,
+        "question": "El componente utilizado para crear listas dinámicas con scroll optimizado en Android es: ..................",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "RecyclerView"
+        ]
+    },
+    {
+        "id": 6,
+        "question": "¿Cuál es el propósito del componente WorkManager en una App Android?",
+        "type": "multiple-choice",
+        "options": [
+            "Gestionar gráficos complejos.",
+            "Proporcionar almacenamiento en caché.",
+            "Manejar las tareas en primer plano.",
+            "Controlar la navegación entre pantallas.",
+            "Administrar eventos del ciclo de vida de la aplicación.",
+            "Coordinar tareas recurrentes y en segundo plano."
+        ],
+        "correctAnswer": "Coordinar tareas recurrentes y en segundo plano."
+    },
+    {
+        "id": 7,
+        "question": "¿El componente Navigator permite manejar rutas y pantallas en Flutter?",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 8,
+        "question": "¿Cuál de los siguientes componentes se utiliza para activar o desactivar una opción?",
+        "type": "multiple-choice",
+        "options": [
+            "Progress Bar",
+            "Checkbox",
+            "Radio Button",
+            "Dropdown",
+            "Switch/Toggle"
+        ],
+        "correctAnswer": "Switch/Toggle"
+    },
+    {
+        "id": 9,
+        "question": "¿Seleccione 3 elementos clave para un diseño de interfaz de usuario accesible?",
+        "type": "multiple-select",
+        "options": [
+            "Uso de animaciones complejas",
+            "Diseño minimalista",
+            "Contraste de colores adecuado",
+            "Elementos táctiles grandes",
+            "Evitar el uso de texto en imágenes",
+            "Etiquetas semánticas claras"
+        ],
+        "correctAnswer": [
+            "Contraste de colores adecuado",
+            "Etiquetas semánticas claras",
+            "Elementos táctiles grandes"
+        ]
+    },
+    {
+        "id": 10,
+        "question": "¿Cómo se llama el controlador que gestiona las transiciones en Android Jetpack Navigation?",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "NavController"
+        ]
+    },
+    {
+        "id": 11,
+        "question": "Empareja cada término de diseño con su definición:",
+        "type": "matching",
+        "pairs": [
+            {
+                "description": "Conjunto de elementos gráficos que conforman la interfaz",
+                "match": "UI"
+            },
+            {
+                "description": "Ajuste automático de la interfaz a distintos dispositivos",
+                "match": "Diseño responsivo"
+            },
+            {
+                "description": "Boceto inicial de la estructura de la aplicación",
+                "match": "Prototipo"
+            },
+            {
+                "description": "Experiencia general del usuario con el sistema",
+                "match": "UX"
+            },
+            {
+                "description": "Modelo funcional de una aplicación para probar la UX",
+                "match": "Prototipo interactivo"
+            }
+        ],
+        "options": [
+            "UI",
+            "UX",
+            "Diseño responsivo",
+            "Prototipo",
+            "Prototipo interactivo"
+        ],
+        "correctAnswer": [
+            "UI",
+            "Diseño responsivo",
+            "Prototipo",
+            "UX",
+            "Prototipo interactivo"
+        ]
+    },
+    {
+        "id": 12,
+        "question": "¿Cuáles son ejemplos de componentes básicos en el desarrollo de Apps? (Elija 3)",
+        "type": "multiple-select",
+        "options": [
+            "Snackbar",
+            "Button",
+            "Menu",
+            "AlertDialog",
+            "TextField",
+            "CheckBox",
+            "RecyclerView"
+        ],
+        "correctAnswer": [
+            "Button",
+            "TextField",
+            "CheckBox"
+        ]
+    },
+    {
+        "id": 13,
+        "question": "El componente ................... sirve para mostrar imágenes en Android",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "ImageView"
+        ]
+    },
+    {
+        "id": 14,
+        "question": "¿Cuál es el principal objetivo del diseño responsivo en una aplicación móvil?",
+        "type": "multiple-choice",
+        "options": [
+            "Optimizar animaciones.",
+            "Aumentar la accesibilidad para usuarios con discapacidades.",
+            "Crear experiencias personalizadas para cada usuario.",
+            "Simplificar el código del backend.",
+            "Mejorar la velocidad de carga de la aplicación.",
+            "Garantizar que la interfaz se adapte a diferentes tamaños de pantalla"
+        ],
+        "correctAnswer": "Garantizar que la interfaz se adapte a diferentes tamaños de pantalla"
+    },
+    {
+        "id": 15,
+        "question": "¿Qué clase de Android se utiliza para representar una unidad de interacción de usuario?",
+        "type": "multiple-choice",
+        "options": [
+            "ContentProvider",
+            "Fragment",
+            "Service",
+            "Activity",
+            "BroadcastReceiver"
+        ],
+        "correctAnswer": "Activity"
+    },
+    {
+        "id": 16,
+        "question": "El componente Data Binding permite vincular directamente datos a vistas sin necesidad de interactuar con el controlador?",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 17,
+        "question": "¿Cómo se llama el componente que permite seleccionar un valor dentro de un rango? ..............",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "Slider",
+            "SeekBar"
+        ]
+    },
+    {
+        "id": 18,
+        "question": "El método onCreate() se utiliza para inicializar componentes esenciales al crear una actividad?",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 19,
+        "question": "Empareja cada componente de Android con su función principal:",
+        "type": "matching",
+        "pairs": [
+            {
+                "description": "Activity",
+                "match": "Manejar la interfaz del usuario."
+            },
+            {
+                "description": "Broadcast Receiver",
+                "match": "Responder a mensajes globales del sistema o de aplicaciones."
+            },
+            {
+                "description": "Intent",
+                "match": "Facilitar la comunicación entre componentes."
+            },
+            {
+                "description": "Service",
+                "match": "Ejecutar tareas en segundo plano."
+            },
+            {
+                "description": "Content Provider",
+                "match": "Proveer datos entre diferentes aplicaciones."
+            }
+        ],
+        "options": [
+            "Manejar la interfaz del usuario.",
+            "Responder a mensajes globales del sistema o de aplicaciones.",
+            "Facilitar la comunicación entre componentes.",
+            "Ejecutar tareas en segundo plano.",
+            "Proveer datos entre diferentes aplicaciones."
+        ],
+        "correctAnswer": [
+            "Manejar la interfaz del usuario.",
+            "Responder a mensajes globales del sistema o de aplicaciones.",
+            "Facilitar la comunicación entre componentes.",
+            "Ejecutar tareas en segundo plano.",
+            "Proveer datos entre diferentes aplicaciones."
+        ]
+    },
+    {
+        "id": 20,
+        "question": "¿Cuál de los siguientes principios de diseño asegura que una aplicación sea susceptible de mejora contínua?",
+        "type": "multiple-choice",
+        "options": [
+            "Facilidad de uso",
+            "Diseño responsivo",
+            "Consistencia",
+            "Retroalimentación",
+            "Atractivo visual",
+            "Usabilidad heurística"
+        ],
+        "correctAnswer": "Retroalimentación"
+    }
+]

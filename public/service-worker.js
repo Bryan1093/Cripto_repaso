@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quiz-cripto-v5';
+const CACHE_NAME = 'quiz-cripto-v6';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -11,8 +11,10 @@ const ASSETS_TO_CACHE = [
     '/manifest.json',
     '/assets/icons/icon-192.png',
     '/assets/icons/icon-512.png',
-    '/api/questions/1',
-    '/api/questions/2'
+    '/api/quiz/criptografia/1',
+    '/api/quiz/criptografia/2',
+    '/api/quiz/dispositivos/1',
+    '/api/quiz/dispositivos/2'
 ];
 
 // Install event - cache assets

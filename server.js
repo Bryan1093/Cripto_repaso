@@ -11,15 +11,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// API endpoint to get quiz data
-app.get('/api/quiz/:unit', (req, res) => {
-    const unit = req.params.unit;
+// API endpoint to get quiz data (multi-subject support)
+app.get('/api/quiz/:subject/:unit', (req, res) => {
+    const { subject, unit } = req.params;
 
+    // Validate subject
+    if (subject !== 'criptografia' && subject !== 'dispositivos') {
+        return res.status(400).json({ error: 'Invalid subject. Must be criptografia or dispositivos.' });
+    }
+
+    // Validate unit
     if (unit !== '1' && unit !== '2') {
         return res.status(400).json({ error: 'Invalid unit. Must be 1 or 2.' });
     }
 
-    const filePath = path.join(__dirname, 'data', `unidad${unit}.json`);
+    const filePath = path.join(__dirname, 'data', subject, `unidad${unit}.json`);
 
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
@@ -33,6 +39,12 @@ app.get('/api/quiz/:unit', (req, res) => {
             res.status(500).json({ error: 'Error parsing quiz data' });
         }
     });
+});
+
+// Legacy endpoint for backward compatibility (redirects to criptografia)
+app.get('/api/quiz/:unit', (req, res) => {
+    const unit = req.params.unit;
+    res.redirect(`/api/quiz/criptografia/${unit}`);
 });
 
 // API endpoint to validate answers

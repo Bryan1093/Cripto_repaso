@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cuestionarios de Criptografía para estudiantes de la UCE">
+    <meta name="description" content="Cuestionarios de Criptografía y Dispositivos Móviles para estudiantes de la UCE">
     <meta name="theme-color" content="#667eea">
-    <title>Cuestionario de Criptografía | UCE</title>
+    <title>Cuestionarios UCE | Criptografía y Dispositivos</title>
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -26,66 +26,29 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Subject Selector View -->
+    <div class="container" id="subjectSelector">
         <div class="hero">
             <div class="hero-content">
                 <div class="logo-badge">UCE</div>
                 <h1 class="hero-title">
-                    <span class="gradient-text">Cuestionario de</span>
-                    <span class="gradient-text">Criptografía</span>
+                    <span class="gradient-text">Cuestionarios</span>
+                    <span class="gradient-text">UCE</span>
                 </h1>
-                <p class="hero-subtitle">Pon a prueba tus conocimientos en seguridad informática y criptografía</p>
+                <p class="hero-subtitle">Selecciona tu materia y pon a prueba tus conocimientos</p>
             </div>
         </div>
 
         <div class="cards-container">
-            <div class="quiz-card" onclick="startQuiz(1)">
-                <div class="card-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                        <path d="M2 17l10 5 10-5" />
-                        <path d="M2 12l10 5 10-5" />
-                    </svg>
-                </div>
-                <h2 class="card-title">Unidad 1</h2>
-                <p class="card-description">Fundamentos de Criptografía, cifrados clásicos, criptografía simétrica y
-                    asimétrica</p>
-                <div class="card-meta">
-                    <span class="meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 6v6l4 2" />
-                        </svg>
-                        20 preguntas
-                    </span>
-                    <span class="meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                            <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                        20 puntos
-                    </span>
-                </div>
-                <button class="card-button">
-                    Comenzar
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
-
-            <div class="quiz-card" onclick="startQuiz(2)">
+            <div class="quiz-card" onclick="selectSubject('criptografia')">
                 <div class="card-icon">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
                 </div>
-                <h2 class="card-title">Unidad 2</h2>
-                <p class="card-description">Protocolos criptográficos, algoritmos modernos, funciones hash y seguridad
-                    en redes</p>
+                <h2 class="card-title">🔐 Criptografía</h2>
+                <p class="card-description">Seguridad informática, cifrados clásicos, criptografía simétrica y asimétrica</p>
                 <div class="card-meta">
                     <span class="meta-item">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -93,7 +56,7 @@
                             <circle cx="12" cy="12" r="10" />
                             <path d="M12 6v6l4 2" />
                         </svg>
-                        20 preguntas
+                        2 unidades
                     </span>
                     <span class="meta-item">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -101,11 +64,46 @@
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                             <polyline points="22 4 12 14.01 9 11.01" />
                         </svg>
-                        20 puntos
+                        40 preguntas
                     </span>
                 </div>
                 <button class="card-button">
-                    Comenzar
+                    Seleccionar
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="quiz-card" onclick="selectSubject('dispositivos')">
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                        <line x1="12" y1="18" x2="12.01" y2="18" />
+                    </svg>
+                </div>
+                <h2 class="card-title">📱 Dispositivos Móviles</h2>
+                <p class="card-description">Desarrollo móvil, componentes, arquitectura y diseño de aplicaciones</p>
+                <div class="card-meta">
+                    <span class="meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                        2 unidades
+                    </span>
+                    <span class="meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        40 preguntas
+                    </span>
+                </div>
+                <button class="card-button">
+                    Seleccionar
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -118,31 +116,32 @@
         </footer>
     </div>
 
-    <script>
-        function startQuiz(unit) {
-            window.location.href = `quiz.html?unit=${unit}`;
-        }
-    </script>
+    <!-- Units View (Hidden by default) -->
+    <div class="container" id="unitsView" style="display: none;">
+        <div class="hero">
+            <div class="hero-content">
+                <button class="back-button" onclick="goBackToSubjects()" style="margin-bottom: 2rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Volver a Materias
+                </button>
+                <div class="logo-badge">UCE</div>
+                <h1 class="hero-title">
+                    <span class="gradient-text" id="selectedSubjectTitle">Criptografía</span>
+                </h1>
+                <p class="hero-subtitle">Selecciona la unidad que deseas estudiar</p>
+            </div>
+        </div>
 
-    <!-- Firebase and Auth Scripts -->
-    <script src="firebase-config.js"></script>
-    <script src="auth.js"></script>
+        <div class="cards-container" id="unitsContainer">
+            <!-- Units will be dynamically inserted here -->
+        </div>
 
-    <!-- Initialize Firebase and Auth -->
-    <script>
-        // Try to initialize Firebase (optional)
-        if (typeof initializeFirebase === 'function') {
-            const initialized = initializeFirebase();
-            if (initialized && typeof checkAuthState === 'function') {
-                checkAuthState();
-            }
-        }
-
-        // Always try to show auth UI, even if Firebase fails
-        if (typeof checkAuthState === 'function') {
-            setTimeout(() => checkAuthState(), 1000);
-        }
-    </script>
+        <footer class="footer">
+            <p>Universidad Central del Ecuador - Facultad de Ingeniería</p>
+        </footer>
+    </div>
 
     <!-- Music Player Widget -->
     <div class="music-player" id="musicPlayer">
@@ -185,8 +184,148 @@
         </div>
     </div>
 
+    <script>
+        let currentSelectedSubject = null;
+
+        const subjectData = {
+            criptografia: {
+                name: 'Criptografía',
+                icon: '🔐',
+                units: [
+                    {
+                        id: 1,
+                        title: 'Unidad 1',
+                        description: 'Fundamentos de Criptografía, cifrados clásicos, criptografía simétrica y asimétrica',
+                        icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>`
+                    },
+                    {
+                        id: 2,
+                        title: 'Unidad 2',
+                        description: 'Protocolos criptográficos, algoritmos modernos, funciones hash y seguridad en redes',
+                        icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>`
+                    }
+                ]
+            },
+            dispositivos: {
+                name: 'Dispositivos Móviles',
+                icon: '📱',
+                units: [
+                    {
+                        id: 1,
+                        title: 'Unidad 1',
+                        description: 'Hardware, sistemas operativos, generaciones de telefonía móvil y tecnologías emergentes',
+                        icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                            <line x1="12" y1="18" x2="12.01" y2="18" />
+                        </svg>`
+                    },
+                    {
+                        id: 2,
+                        title: 'Unidad 2',
+                        description: 'Componentes de desarrollo, navegación, diseño de interfaces y arquitectura Android',
+                        icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+                            <line x1="9" y1="9" x2="15" y2="9"/>
+                            <line x1="9" y1="13" x2="15" y2="13"/>
+                        </svg>`
+                    }
+                ]
+            }
+        };
+
+        function selectSubject(subject) {
+            currentSelectedSubject = subject;
+            const data = subjectData[subject];
+
+            // Hide subject selector
+            document.getElementById('subjectSelector').style.display = 'none';
+
+            // Show units view
+            document.getElementById('unitsView').style.display = 'block';
+
+            // Update title
+            document.getElementById('selectedSubjectTitle').textContent = data.name;
+
+            // Render units
+            const container = document.getElementById('unitsContainer');
+            container.innerHTML = '';
+
+            data.units.forEach(unit => {
+                const card = `
+                    <div class="quiz-card" onclick="startQuiz('${subject}', ${unit.id})">
+                        <div class="card-icon">
+                            ${unit.icon}
+                        </div>
+                        <h2 class="card-title">${unit.title}</h2>
+                        <p class="card-description">${unit.description}</p>
+                        <div class="card-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                20 preguntas
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                20 puntos
+                            </span>
+                        </div>
+                        <button class="card-button">
+                            Comenzar
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function goBackToSubjects() {
+            document.getElementById('unitsView').style.display = 'none';
+            document.getElementById('subjectSelector').style.display = 'block';
+            currentSelectedSubject = null;
+        }
+
+        function startQuiz(subject, unit) {
+            window.location.href = `quiz.html?subject=${subject}&unit=${unit}`;
+        }
+    </script>
+
     <!-- Music Player Script -->
     <script src="js/music-player.js"></script>
+
+    <!-- Firebase and Auth Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- Initialize Firebase and Auth -->
+    <script>
+        // Try to initialize Firebase (optional)
+        if (typeof initializeFirebase === 'function') {
+            const initialized = initializeFirebase();
+            if (initialized && typeof checkAuthState === 'function') {
+                checkAuthState();
+            }
+        }
+
+        // Always try to show auth UI, even if Firebase fails
+        if (typeof checkAuthState === 'function') {
+            setTimeout(() => checkAuthState(), 1000);
+        }
+    </script>
 
     <!-- Service Worker Registration -->
     <script>

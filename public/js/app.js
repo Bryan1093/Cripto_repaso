@@ -1,4 +1,5 @@
 // Global state
+let currentSubject = null;
 let currentUnit = null;
 let questions = [];
 let currentQuestionIndex = 0;
@@ -9,23 +10,25 @@ let isReviewMode = false;
 // Initialize quiz on page load
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
+    currentSubject = urlParams.get('subject') || 'criptografia'; // Default to criptografia for backward compatibility
     currentUnit = urlParams.get('unit');
 
     if (currentUnit) {
-        loadQuiz(currentUnit);
+        loadQuiz(currentSubject, currentUnit);
     }
 });
 
 // Load quiz data from API
-async function loadQuiz(unit) {
+async function loadQuiz(subject, unit) {
     try {
-        const response = await fetch(`/api/quiz/${unit}`);
+        const response = await fetch(`/api/quiz/${subject}/${unit}`);
         if (!response.ok) throw new Error('Failed to load quiz');
 
         questions = await response.json();
 
-        // Update header
-        document.getElementById('unitTitle').textContent = `Unidad ${unit}`;
+        // Update header with subject and unit
+        const subjectName = subject === 'criptografia' ? 'Criptografía' : 'Dispositivos Móviles';
+        document.getElementById('unitTitle').textContent = `${subjectName} - Unidad ${unit}`;
 
         // Display first question
         displayQuestion(0);

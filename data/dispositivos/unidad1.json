@@ -1,0 +1,284 @@
+[
+    {
+        "id": 1,
+        "question": "Seleccione componentes del hardware de un dispositivo móvil:",
+        "type": "multiple-select",
+        "options": [
+            "Pantalla",
+            "Sensores",
+            "Memoria",
+            "Interfaz de usuario (UI)",
+            "Sistema Operativo"
+        ],
+        "correctAnswer": [
+            "Pantalla",
+            "Sensores",
+            "Memoria"
+        ]
+    },
+    {
+        "id": 2,
+        "question": "¿Cuál de los siguientes es un sistema operativo común en dispositivos móviles?",
+        "type": "multiple-choice",
+        "options": [
+            "macOS",
+            "Linux",
+            "Windows",
+            "Ubuntu",
+            "iOS"
+        ],
+        "correctAnswer": "iOS"
+    },
+    {
+        "id": 3,
+        "question": "La tecnología ..................... se enfoca en la creación de soluciones que minimicen el impacto ambiental.",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "sostenible",
+            "Sostenible"
+        ]
+    },
+    {
+        "id": 4,
+        "question": "¿Qué significan las siglas CSS?",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "Cascading Style Sheets"
+        ]
+    },
+    {
+        "id": 5,
+        "question": "Empareja cada tecnología emergente con su aplicación:",
+        "type": "matching",
+        "pairs": [
+            {
+                "description": "Crea contenido nuevo basado en patrones",
+                "match": "IA Generativa"
+            },
+            {
+                "description": "Reduce el impacto ambiental en la tecnología",
+                "match": "Tecnología Sostenible"
+            },
+            {
+                "description": "Promueve el desarrollo de aplicaciones sin programación",
+                "match": "No Code"
+            },
+            {
+                "description": "Gestiona riesgos y confianza en aplicaciones de inteligencia artificial",
+                "match": "AI TRiSM"
+            }
+        ],
+        "options": [
+            "IA Generativa",
+            "Tecnología Sostenible",
+            "No Code",
+            "AI TRiSM"
+        ],
+        "correctAnswer": [
+            "IA Generativa",
+            "Tecnología Sostenible",
+            "No Code",
+            "AI TRiSM"
+        ]
+    },
+    {
+        "id": 6,
+        "question": "¿Qué tipo de pantalla ofrece mejores contrastes y negros puros?",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "OLED"
+        ]
+    },
+    {
+        "id": 7,
+        "question": "............... es uno de los primeros sistemas operativos para dispositivos móviles",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "Symbian"
+        ]
+    },
+    {
+        "id": 8,
+        "question": "¿Cuál de los siguientes frameworks utiliza el lenguaje Dart para el desarrollo de aplicaciones?",
+        "type": "multiple-choice",
+        "options": [
+            "React Native",
+            "Flutter",
+            "Android SDK",
+            "Ionic"
+        ],
+        "correctAnswer": "Flutter"
+    },
+    {
+        "id": 9,
+        "question": "Responda con una sola palabra que represente correctamente la característica solicitada en la pregunta. ¿Qué característica hace que una laptop no sea un dispositivo móvil pero un teléfono inteligente sí?",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "Portabilidad"
+        ]
+    },
+    {
+        "id": 10,
+        "question": "¿Cuál de las siguientes es una característica de los dispositivos móviles?",
+        "type": "multiple-choice",
+        "options": [
+            "Alta vida útil",
+            "Requieren conexión por cable para funcionar",
+            "Difíciles de transportar",
+            "Comunicación inalámbrica"
+        ],
+        "correctAnswer": "Comunicación inalámbrica"
+    },
+    {
+        "id": 11,
+        "question": "¿En qué generación de telefonía móvil aparecieron los primeros sistemas operativos móviles implementados en dispositivos comerciales?",
+        "type": "multiple-choice",
+        "options": [
+            "2G",
+            "0G",
+            "1G",
+            "3G",
+            "4G"
+        ],
+        "correctAnswer": "2G"
+    },
+    {
+        "id": 12,
+        "question": "Android tiene una cuota de mercado mayor al 80% en dispositivos móviles a nivel global.",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 13,
+        "question": "¿Cuál fue el estándar de tecnología que permitió enviar mensajes SMS en los teléfonos móviles?",
+        "type": "fill-blank",
+        "correctAnswer": [
+            "GSM"
+        ]
+    },
+    {
+        "id": 14,
+        "question": "Flutter utiliza el lenguaje Kotlin para crear aplicaciones móviles nativas?",
+        "type": "true-false",
+        "correctAnswer": false
+    },
+    {
+        "id": 15,
+        "question": "Empareja cada término con su definición correspondiente.",
+        "type": "matching",
+        "pairs": [
+            {
+                "description": "Lanzamiento del Motorola DynaTAC y enfoque en la comunicación de voz.",
+                "match": "Primera generación (1G)"
+            },
+            {
+                "description": "Permitió navegar en internet y el uso de correos electrónicos.",
+                "match": "Tercera generación (3G)"
+            },
+            {
+                "description": "Dominio de iOS y Android con conexión a internet de alta velocidad.",
+                "match": "Cuarta generación (4G)"
+            },
+            {
+                "description": "Mejor calidad de llamada y envíos de SMS mediante tecnología GSM.",
+                "match": "Segunda generación (2G)"
+            },
+            {
+                "description": "Redes que mejoran la interconectividad para IA y realidad aumentada.",
+                "match": "Quinta generación (5G)"
+            }
+        ],
+        "options": [
+            "Primera generación (1G)",
+            "Segunda generación (2G)",
+            "Tercera generación (3G)",
+            "Cuarta generación (4G)",
+            "Quinta generación (5G)"
+        ],
+        "correctAnswer": [
+            "Primera generación (1G)",
+            "Tercera generación (3G)",
+            "Cuarta generación (4G)",
+            "Segunda generación (2G)",
+            "Quinta generación (5G)"
+        ]
+    },
+    {
+        "id": 16,
+        "question": "Las aplicaciones híbridas combinan tecnologías web como HTML y CSS",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 17,
+        "question": "¿Cuál de las siguientes opciones corresponde a una tecnología emergente que permite la interconexión de dispositivos a través de internet, permitiendo recopilar, enviar y actuar sobre datos sin intervención humana directa?",
+        "type": "multiple-choice",
+        "options": [
+            "Impresión 3D",
+            "Internet de las Cosas (IoT)",
+            "Realidad Aumentada",
+            "Inteligencia Artificial"
+        ],
+        "correctAnswer": "Internet de las Cosas (IoT)"
+    },
+    {
+        "id": 18,
+        "question": "La conectividad a internet basada en satélites es una tendencia que busca mejorar la cobertura en áreas remotas y desatendidas.",
+        "type": "true-false",
+        "correctAnswer": true
+    },
+    {
+        "id": 19,
+        "question": "Empareja cada framework de desarrollo móvil con el lenguaje de programación principal que utiliza:",
+        "type": "matching",
+        "pairs": [
+            {
+                "description": "React Native",
+                "match": "JavaScript"
+            },
+            {
+                "description": "Flutter",
+                "match": "Dart"
+            },
+            {
+                "description": "Android Studio",
+                "match": "Kotlin"
+            },
+            {
+                "description": "Xamarin",
+                "match": "C#"
+            },
+            {
+                "description": "SwiftUI",
+                "match": "Swift"
+            }
+        ],
+        "options": [
+            "JavaScript",
+            "Dart",
+            "Kotlin",
+            "C#",
+            "Swift"
+        ],
+        "correctAnswer": [
+            "JavaScript",
+            "Dart",
+            "Kotlin",
+            "C#",
+            "Swift"
+        ]
+    },
+    {
+        "id": 20,
+        "question": "¿Cuál fue el primer dispositivo móvil?",
+        "type": "multiple-choice",
+        "options": [
+            "Apple iPhone",
+            "Nokia 1011",
+            "Motorola DynaTAC 8000X",
+            "Samsung SCH-100",
+            "IBM Simon"
+        ],
+        "correctAnswer": "Motorola DynaTAC 8000X"
+    }
+]
