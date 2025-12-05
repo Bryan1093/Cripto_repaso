@@ -35,7 +35,7 @@
     position: absolute;
     bottom: 80px;
     right: 0;
-    width: 350px;
+    width: 380px;
     background: #151b2e;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
@@ -82,24 +82,87 @@
     color: #ffffff;
 }
 
-.music-panel iframe {
-    border-radius: 0 0 16px 16px;
+.music-content {
+    padding: 1rem;
 }
 
-/* Enhanced select dropdown */
-select.text-input {
+.playlist-selector {
+    margin-bottom: 1rem;
+}
+
+.playlist-selector label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #a0aec0;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.playlist-dropdown {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0aec0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 3rem;
-    cursor: pointer;
 }
 
-select.text-input option {
+.playlist-dropdown:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #667eea;
+}
+
+.playlist-dropdown:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.playlist-dropdown option {
     background: #151b2e;
     color: #ffffff;
     padding: 0.5rem;
+}
+
+.player-container {
+    min-height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.player-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #a0aec0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+
+.player-placeholder svg {
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.player-placeholder p {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.player-container iframe {
+    border-radius: 8px;
 }
 
 /* Mobile adjustments */

@@ -107,14 +107,34 @@
         </button>
         <div class="music-panel" id="musicPanel">
             <div class="music-header">
-                <span>Música de Estudio 🎵</span>
+                <span>Reproductor de Música 🎵</span>
                 <button class="close-music" onclick="toggleMusic()">×</button>
             </div>
-            <iframe id="musicIframe" width="100%" height="200"
-                src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0&loop=1&playlist=jfKfPfyJRdk" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+            <div class="music-content">
+                <div class="playlist-selector">
+                    <label for="playlistSelect">Selecciona tu música:</label>
+                    <select id="playlistSelect" onchange="changePlaylist()" class="playlist-dropdown">
+                        <option value="">-- Elige una playlist --</option>
+                        <option value="PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3">🤘 Asking Alexandria</option>
+                        <option value="PL rRKDxPPYSJT_zGMELbnj0Gg-v9-VtOjP">🔥 Falling in Reverse</option>
+                        <option value="PL1C815D7BAEE75A0B">⚡ Linkin Park</option>
+                        <option value="PLZqsyBiYZFQ1F7wPPZmV9Hv3mZHVmKpBn">🌶️ Red Hot Chili Peppers</option>
+                        <option value="PLOzDu-MXXLliO9fBNZOQTBDddoA3FzZUo">🎸 Rock Clásico</option>
+                        <option value="PLw-VjHDlEOgvtnnnqWlTqByAtC7tMRkQj">🎧 Lofi para Estudiar</option>
+                        <option value="PLOHoVaTp8R7dCM4bLhmuAj0e_ZHhEeWNb">📚 Música de Concentración</option>
+                    </select>
+                </div>
+                <div id="playerContainer" class="player-container">
+                    <div class="player-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polygon points="10 8 16 12 10 16 10 8" />
+                        </svg>
+                        <p>Selecciona una playlist para comenzar</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -130,6 +150,37 @@
                 panel.classList.add('active');
                 toggle.classList.add('active');
             }
+        }
+
+        function changePlaylist() {
+            const select = document.getElementById('playlistSelect');
+            const playlistId = select.value;
+            const container = document.getElementById('playerContainer');
+
+            if (!playlistId) {
+                container.innerHTML = `
+                    <div class="player-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="10 8 16 12 10 16 10 8"/>
+                        </svg>
+                        <p>Selecciona una playlist para comenzar</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <iframe 
+                    id="musicIframe"
+                    width="100%" 
+                    height="200" 
+                    src="https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
         }
     </script>
 </body>
