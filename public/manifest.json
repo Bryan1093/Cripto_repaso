@@ -1,0 +1,55 @@
+{
+    "name": "Quiz de Criptografía",
+    "short_name": "Quiz Cripto",
+    "description": "Aplicación de cuestionarios de Criptografía con música y modo offline",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#667eea",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "education",
+        "productivity"
+    ],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Unidad 1",
+            "short_name": "Unidad 1",
+            "description": "Iniciar cuestionario Unidad 1",
+            "url": "/quiz.html?unit=1",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Unidad 2",
+            "short_name": "Unidad 2",
+            "description": "Iniciar cuestionario Unidad 2",
+            "url": "/quiz.html?unit=2",
+            "icons": [
+                {
+                    "src": "/icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}

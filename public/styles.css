@@ -832,3 +832,14 @@ body::before {
         font-size: 2.5rem;
     }
 }
+/* PWA and Auth Styles */
+.user-widget { margin-top: 2rem; }
+.user-profile { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-glass); border-radius: var(--radius-lg); border: 1px solid var(--border-color); }
+.user-avatar { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--accent-primary); }
+.user-info { display: flex; flex-direction: column; gap: 0.5rem; }
+.user-name { font-weight: 600; color: var(--text-primary); }
+.btn-login, .btn-logout { padding: 0.75rem 1.5rem; border-radius: var(--radius-md); font-weight: 500; cursor: pointer; transition: all var(--transition-fast); border: none; }
+.btn-login { background: white; color: #1f2937; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.btn-login:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.btn-logout { background: transparent; color: var(--text-secondary); padding: 0.5rem 1rem; font-size: 0.875rem; }
+.btn-logout:hover { color: var(--accent-primary); background: rgba(102, 126, 234, 0.1); }
