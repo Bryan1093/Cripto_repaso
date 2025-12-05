@@ -1,0 +1,121 @@
+/* Music Player Styles */
+.music-player {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+}
+
+.music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+}
+
+.music-toggle.active {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+.music-panel {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    background: #151b2e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.music-panel.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.music-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.close-music {
+    background: none;
+    border: none;
+    color: #a0aec0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-music:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+.music-panel iframe {
+    border-radius: 0 0 16px 16px;
+}
+
+/* Enhanced select dropdown */
+select.text-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0aec0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+    cursor: pointer;
+}
+
+select.text-input option {
+    background: #151b2e;
+    color: #ffffff;
+    padding: 0.5rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .music-player {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .music-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .music-panel {
+        width: calc(100vw - 2rem);
+        right: -1rem;
+    }
+}

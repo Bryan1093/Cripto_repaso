@@ -75,14 +75,24 @@ app.post('/api/submit', (req, res) => {
                         isCorrect = normalizedUser === normalizedCorrect;
                         break;
 
+
                     case 'multiple-select':
                         // Check if arrays have same elements
+                        // correctAnswers can be indices or text values
                         if (Array.isArray(userAnswer) && Array.isArray(question.correctAnswers)) {
+                            let correctValues = question.correctAnswers;
+
+                            // If correctAnswers contains numbers (indices), convert to actual values
+                            if (question.correctAnswers.every(item => typeof item === 'number')) {
+                                correctValues = question.correctAnswers.map(idx => question.options[idx]);
+                            }
+
                             const sortedUser = [...userAnswer].sort();
-                            const sortedCorrect = [...question.correctAnswers].sort();
+                            const sortedCorrect = [...correctValues].sort();
                             isCorrect = JSON.stringify(sortedUser) === JSON.stringify(sortedCorrect);
                         }
                         break;
+
 
                     case 'matching':
                         // For matching questions, check if user provided correct values

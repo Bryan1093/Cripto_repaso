@@ -55,6 +55,17 @@ function displayQuestion(index) {
     const answerSection = document.getElementById('answerSection');
     answerSection.innerHTML = '';
 
+    // Add image if question has one
+    if (question.image) {
+        const img = document.createElement('img');
+        img.src = question.image;
+        img.style.maxWidth = '100%';
+        img.style.marginBottom = '1.5rem';
+        img.style.borderRadius = '12px';
+        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+        answerSection.appendChild(img);
+    }
+
     switch (question.type) {
         case 'multiple-choice':
             renderMultipleChoice(question);
@@ -205,11 +216,11 @@ function renderMatching(question) {
             answerSection.appendChild(input);
         });
     } else if (question.pairs) {
-        // Pair matching
+        // Pair matching with dropdown if options provided
         const instruction = document.createElement('p');
         instruction.style.marginBottom = '1rem';
         instruction.style.color = 'var(--text-secondary)';
-        instruction.textContent = 'Completa cada descripción con la respuesta correcta:';
+        instruction.textContent = question.options ? 'Selecciona la respuesta correcta para cada descripción:' : 'Completa cada descripción con la respuesta correcta:';
         answerSection.appendChild(instruction);
 
         const answers = [];
@@ -221,17 +232,45 @@ function renderMatching(question) {
             description.className = 'matching-description';
             description.textContent = pair.description;
 
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.className = 'text-input matching-input';
-            input.placeholder = 'Respuesta...';
-            input.oninput = (e) => {
-                answers[index] = e.target.value;
-                saveAnswer(question.id, answers);
-            };
+            if (question.options) {
+                // Use dropdown select
+                const select = document.createElement('select');
+                select.className = 'text-input matching-input';
 
-            pairDiv.appendChild(description);
-            pairDiv.appendChild(input);
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Selecciona...';
+                select.appendChild(defaultOption);
+
+                question.options.forEach(option => {
+                    const opt = document.createElement('option');
+                    opt.value = option;
+                    opt.textContent = option;
+                    select.appendChild(opt);
+                });
+
+                select.onchange = (e) => {
+                    answers[index] = e.target.value;
+                    saveAnswer(question.id, answers);
+                };
+
+                pairDiv.appendChild(description);
+                pairDiv.appendChild(select);
+            } else {
+                // Use text input
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'text-input matching-input';
+                input.placeholder = 'Respuesta...';
+                input.oninput = (e) => {
+                    answers[index] = e.target.value;
+                    saveAnswer(question.id, answers);
+                };
+
+                pairDiv.appendChild(description);
+                pairDiv.appendChild(input);
+            }
+
             answerSection.appendChild(pairDiv);
         });
     }
@@ -300,8 +339,10 @@ function updateNavigation() {
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
 
-    // Update previous button
-    prevButton.disabled = currentQuestionIndex === 0;
+    // Disable previous button completely (no going back)
+    prevButton.disabled = true;
+    prevButton.style.opacity = '0.3';
+    prevButton.style.cursor = 'not-allowed';
 
     // Update next button text
     if (currentQuestionIndex === questions.length - 1) {

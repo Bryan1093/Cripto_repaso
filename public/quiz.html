@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz - Cuestionario de Criptografía</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="music-player.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -95,7 +96,42 @@
         </div>
     </div>
 
+    <!-- Music Player Widget -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+            </svg>
+        </button>
+        <div class="music-panel" id="musicPanel">
+            <div class="music-header">
+                <span>Música de Estudio 🎵</span>
+                <button class="close-music" onclick="toggleMusic()">×</button>
+            </div>
+            <iframe id="musicIframe" width="100%" height="200"
+                src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0&loop=1&playlist=jfKfPfyJRdk" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
     <script src="app.js"></script>
+    <script>
+        function toggleMusic() {
+            const panel = document.getElementById('musicPanel');
+            const toggle = document.getElementById('musicToggle');
+            if (panel.classList.contains('active')) {
+                panel.classList.remove('active');
+                toggle.classList.remove('active');
+            } else {
+                panel.classList.add('active');
+                toggle.classList.add('active');
+            }
+        }
+    </script>
 </body>
 
 </html>

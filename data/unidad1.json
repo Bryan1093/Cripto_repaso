@@ -100,7 +100,10 @@
     "id": 11,
     "question": "En la Criptografía _____ el método de protección de la clave es fácilmente vulnerable, mientras que en la Criptografía _____ las claves tienen un código de encriptación que hace difícil romperlas",
     "type": "matching",
-    "blanks": ["Simétrica", "Asimétrica"],
+    "blanks": [
+      "Simétrica",
+      "Asimétrica"
+    ],
     "points": 1
   },
   {
@@ -117,6 +120,10 @@
         "answer": "Stream Cipher"
       }
     ],
+    "options": [
+      "Block Cipher",
+      "Stream Cipher"
+    ],
     "points": 1
   },
   {
@@ -130,7 +137,10 @@
       "Cálculo",
       "Física"
     ],
-    "correctAnswers": ["Matemáticas", "Computación"],
+    "correctAnswers": [
+      1,
+      2
+    ],
     "points": 1
   },
   {
@@ -144,6 +154,7 @@
     "id": 15,
     "question": "Cuál es el mensaje del criptograma NMHGKQTBK, utilizando la clave UCE y la tabla de Vigenère?",
     "type": "fill-blank",
+    "image": "/15.jpg",
     "correctAnswer": "HOLAMUNDO",
     "points": 1
   },
@@ -173,7 +184,11 @@
       "FEAL",
       "ElGamal"
     ],
-    "correctAnswers": ["FEAL", "Serpent", "Blowfish"],
+    "correctAnswers": [
+      "FEAL",
+      "Serpent",
+      "Blowfish"
+    ],
     "points": 1
   },
   {
