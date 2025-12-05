@@ -411,18 +411,6 @@ body::before {
 }
 
 .text-input:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-}
-
-.text-input::placeholder {
-    color: var(--text-muted);
-}
-
-.matching-pair {
-    display: flex;
-    align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
 }
