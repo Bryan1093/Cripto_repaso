@@ -5,6 +5,8 @@ let currentUser = null;
 function checkAuthState() {
     if (!window.auth) {
         console.log('Auth not initialized, running in guest mode');
+        // Still show the login button even if auth isn't initialized
+        updateUIForUser(null);
         return null;
     }
 

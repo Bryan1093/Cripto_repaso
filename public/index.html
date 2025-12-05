@@ -137,6 +137,11 @@
                 checkAuthState();
             }
         }
+
+        // Always try to show auth UI, even if Firebase fails
+        if (typeof checkAuthState === 'function') {
+            setTimeout(() => checkAuthState(), 1000);
+        }
     </script>
 
     <!-- Service Worker Registration -->
