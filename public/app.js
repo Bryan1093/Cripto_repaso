@@ -89,11 +89,24 @@ function displayQuestion(index) {
     restoreAnswer(question);
 }
 
+// Shuffle array function
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 // Render multiple choice question
 function renderMultipleChoice(question) {
     const answerSection = document.getElementById('answerSection');
 
-    question.options.forEach((option, index) => {
+    // Shuffle options for randomization
+    const shuffledOptions = shuffleArray(question.options);
+
+    shuffledOptions.forEach((option, index) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'answer-option';
 
@@ -120,7 +133,10 @@ function renderMultipleChoice(question) {
 function renderTrueFalse(question) {
     const answerSection = document.getElementById('answerSection');
 
-    ['Verdadero', 'Falso'].forEach((option, index) => {
+    // Shuffle true/false options
+    const options = shuffleArray(['Verdadero', 'Falso']);
+
+    options.forEach((option, index) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'answer-option';
 
@@ -168,7 +184,10 @@ function renderMultipleSelect(question) {
     instruction.textContent = 'Selecciona todas las opciones correctas:';
     answerSection.appendChild(instruction);
 
-    question.options.forEach((option, index) => {
+    // Shuffle options for randomization
+    const shuffledOptions = shuffleArray(question.options);
+
+    shuffledOptions.forEach((option, index) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'answer-option';
 
