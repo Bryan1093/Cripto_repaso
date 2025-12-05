@@ -12,7 +12,8 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/music-player.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -142,6 +143,50 @@
             setTimeout(() => checkAuthState(), 1000);
         }
     </script>
+
+    <!-- Music Player Widget -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+            </svg>
+        </button>
+        <div class="music-panel" id="musicPanel">
+            <div class="music-header">
+                <span>Reproductor de Música 🎵</span>
+                <button class="close-music" onclick="toggleMusic()">×</button>
+            </div>
+            <div class="music-content">
+                <div class="playlist-selector">
+                    <label for="playlistSelect">Selecciona tu música:</label>
+                    <select id="playlistSelect" onchange="changePlaylist()" class="playlist-dropdown">
+                        <option value="">-- Elige una playlist --</option>
+                        <option value="PLZPgTu-MLJw8EzvuoK2UhcRD6Kk8esVzm">🤘 Asking Alexandria</option>
+                        <option value="PLxA687tYuMWhtttCNIa5cW_vtnAGrmRP8">🔥 Falling in Reverse</option>
+                        <option value="PL9LkJszkF_Z6bJ82689htd2wch-HVbzCO">⚡ Linkin Park</option>
+                        <option value="PLAAE66433681598F2">🌶️ Red Hot Chili Peppers</option>
+                        <option value="PLrrrLOu1whQwgUkalVLPH70m62Ol-OyZx">🎵 Música Variada</option>
+                        <option value="video:jfKfPfyJRdk">🎧 Lofi Hip Hop 24/7 Livestream</option>
+                    </select>
+                </div>
+                <div id="playerContainer" class="player-container">
+                    <div class="player-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polygon points="10 8 16 12 10 16 10 8" />
+                        </svg>
+                        <p>Selecciona una playlist para comenzar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player Script -->
+    <script src="js/music-player.js"></script>
 
     <!-- Service Worker Registration -->
     <script>

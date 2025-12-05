@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quiz-cripto-v4';
+const CACHE_NAME = 'quiz-cripto-v5';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -7,6 +7,7 @@ const ASSETS_TO_CACHE = [
     '/css/music-player.css',
     '/css/review-mode.css',
     '/js/app.js',
+    '/js/music-player.js',
     '/manifest.json',
     '/assets/icons/icon-192.png',
     '/assets/icons/icon-512.png',
