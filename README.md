@@ -1,15 +1,23 @@
-# Cuestionario de Criptografía - UCE
+# Cuestionarios UCE - Criptografía y Dispositivos Móviles
 
-Aplicación web de cuestionarios para estudiar conceptos de criptografía y seguridad informática.
+Aplicación web de cuestionarios para estudiar conceptos de criptografía, seguridad informática y desarrollo de dispositivos móviles.
+
+## 🚀 Demo en Vivo
+
+**[https://cripto-repaso.vercel.app](https://cripto-repaso.vercel.app)**
 
 ## Características
 
-- 🎯 Dos unidades de estudio con 20 preguntas cada una
-- 📊 Múltiples tipos de preguntas (opción múltiple, verdadero/falso, completar, etc.)
+- 🎯 **Dos materias disponibles:** Criptografía y Dispositivos Móviles
+- 📚 Cuatro unidades de estudio (2 por materia) con 20 preguntas cada una
+- 📊 Múltiples tipos de preguntas (opción múltiple, verdadero/falso, completar, emparejar, etc.)
 - 🎨 Diseño moderno y responsivo con modo oscuro
 - ✨ Animaciones suaves y efectos visuales premium
+- 🎵 Reproductor de música integrado y persistente
+- 🔄 Modo de revisión con feedback visual (verde/rojo)
 - 📱 Compatible con dispositivos móviles y tablets
-- 🚀 Desplegable en Vercel
+- 💾 PWA (Progressive Web App) - funciona offline
+- 🚀 Desplegado en Vercel
 
 ## Instalación Local
 
@@ -71,13 +79,27 @@ npm run dev
 ```
 quiz-app/
 ├── public/              # Archivos estáticos
-│   ├── index.html      # Página principal
+│   ├── assets/         # Recursos (iconos, documentos)
+│   ├── css/            # Estilos CSS
+│   │   ├── styles.css
+│   │   ├── music-player.css
+│   │   └── review-mode.css
+│   ├── js/             # Scripts JavaScript
+│   │   ├── app.js
+│   │   ├── music-player.js
+│   │   ├── firebase-config.js
+│   │   └── auth.js
+│   ├── index.html      # Página principal (selector de materias)
 │   ├── quiz.html       # Interfaz del cuestionario
-│   ├── styles.css      # Estilos CSS
-│   └── app.js          # Lógica del frontend
+│   ├── manifest.json   # Configuración PWA
+│   └── service-worker.js
 ├── data/               # Datos de los cuestionarios
-│   ├── unidad1.json    # Preguntas Unidad 1
-│   └── unidad2.json    # Preguntas Unidad 2
+│   ├── criptografia/
+│   │   ├── unidad1.json
+│   │   └── unidad2.json
+│   └── dispositivos/
+│       ├── unidad1.json
+│       └── unidad2.json
 ├── server.js           # Servidor Express
 ├── package.json        # Dependencias
 ├── vercel.json         # Configuración de Vercel
@@ -88,17 +110,28 @@ quiz-app/
 
 - **Backend**: Node.js, Express
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Diseño**: CSS Grid, Flexbox, Animaciones CSS
+- **Diseño**: CSS Grid, Flexbox, Animaciones CSS, Glassmorphism
 - **Fuentes**: Google Fonts (Inter)
+- **PWA**: Service Workers, Cache API
 - **Despliegue**: Vercel
 
 ## Contenido de los Cuestionarios
 
-### Unidad 1
+### 📚 Criptografía
+
+#### Unidad 1
 Fundamentos de Criptografía, cifrados clásicos, criptografía simétrica y asimétrica, funciones hash, algoritmos de cifrado.
 
-### Unidad 2
+#### Unidad 2
 Protocolos criptográficos, algoritmos modernos (RSA, AES, DES), funciones hash (MD5, SHA), seguridad en redes, modelo OSI.
+
+### 📱 Dispositivos Móviles
+
+#### Unidad 1
+Hardware de dispositivos móviles, sistemas operativos (iOS, Android), generaciones de telefonía móvil (1G-5G), frameworks de desarrollo (Flutter, React Native), tecnologías emergentes (IoT, IA Generativa).
+
+#### Unidad 2
+Componentes de desarrollo móvil, navegación (Navigation Component, NavController), componentes de UI (TextField, Button, RecyclerView), arquitectura Android (Activity, Fragment, Service), diseño de interfaces (UI/UX, diseño responsivo).
 
 ## Autor
 
